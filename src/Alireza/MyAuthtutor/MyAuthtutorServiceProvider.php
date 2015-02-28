@@ -18,7 +18,7 @@ class MyAuthtutorServiceProvider extends ServiceProvider {
      */
     public function boot()
     {
-        $this->package('alireza/MyAuthtutor');
+        $this->package('alireza/Myauthtutor');
     }
 
     /**
@@ -36,7 +36,7 @@ class MyAuthtutorServiceProvider extends ServiceProvider {
         $this->app->booting(function()
         {
             $loader = \Illuminate\Foundation\AliasLoader::getInstance();
-            $loader->alias('MyAuth', 'Alireza\MyAuthtutor\Facades\MyAuth');
+            $loader->alias('Myauth', 'Alireza\Myauthtutor\Facades\Myauth');
         });
     }
 
@@ -47,7 +47,7 @@ class MyAuthtutorServiceProvider extends ServiceProvider {
      */
     public function provides()
     {
-        return 'MyAuthtutor';
+        return 'Myauthtutor';
     }
 
 }
