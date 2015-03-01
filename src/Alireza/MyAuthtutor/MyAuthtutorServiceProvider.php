@@ -1,9 +1,12 @@
-<?php namespace Alireza\MyAuthtutor;
+<?php
+namespace Alireza\Myauthtutor;
 
 use Illuminate\Support\ServiceProvider;
+use Morrislaptop\LaravelFivePackageBridges\LaravelFivePackageBridgeTrait;
 
-class MyAuthtutorServiceProvider extends ServiceProvider {
+class MyauthtutorServiceProvider extends ServiceProvider {
 
+    use LaravelFivePackageBridgeTrait;
     /**
      * Indicates if loading of the provider is deferred.
      *
@@ -18,7 +21,7 @@ class MyAuthtutorServiceProvider extends ServiceProvider {
      */
     public function boot()
     {
-        $this->package('alireza/Myauthtutor');
+        $this->package('alireza/myauthtutor');
     }
 
     /**
@@ -28,18 +31,7 @@ class MyAuthtutorServiceProvider extends ServiceProvider {
      */
     public function register()
     {
-        $this->app['MyAuth'] = $this->app->share(function($app)
-        {
-            return new MyAuth;
-        });
-
-        $this->app->booting(function()
-        {
-            $loader = \Illuminate\Foundation\AliasLoader::getInstance();
-            $loader->alias('Myauth', 'Alireza\Myauthtutor\Facades\Myauth');
-        });
     }
-
     /**
      * Get the services provided by the provider.
      *
@@ -47,7 +39,7 @@ class MyAuthtutorServiceProvider extends ServiceProvider {
      */
     public function provides()
     {
-        return 'Myauthtutor';
+        return ['myauthtutor'];
     }
 
 }
